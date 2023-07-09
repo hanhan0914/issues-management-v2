@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const Title = styled.div`
-  font-family: Comic Sans MS;
-  font-size: 90px;
+  font-family: Impact;
+  font-size: 120px;
   font-weight: bolder;
-  margin: 50px;
-  color: #000000;
+  padding: 150px;
+  color: #2a4c65;
   height: 80px;
-  line-height: 0.8;
-
+  line-height: 1;
+  letter-spacing: 5px;
   width: 900px;
   @media screen and (max-width: 825px) {
     height: 130px;
@@ -30,15 +30,11 @@ export const LoginButton = styled.button`
   height: 80px;
   position: relative;
   left: 50%;
-  transform: translate(-50%, 510%);
+  transform: translate(-245%, 200%);
   cursor: pointer;
   z-index: 2;
   &:hover {
     transition-timing-function: ease;
-    transition-delay: 0.3s;
-    width: 280px;
-    height: 80px;
-    font-size: 42px;
   }
 
   // button 屬性修改

@@ -1,7 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import { LoginButton, Background, Title } from './login_style';
+import { LoginButton, Title } from './login_style';
+
+import Button from '@mui/material/Button';
 
 function Login() {
   // eslint-disable-next-line no-undef
@@ -10,33 +12,31 @@ function Login() {
 
   return (
     <>
-      <Title>Issues Management</Title>
-
-      <Background
-        style={{ backgroundImage: 'url(images/loginpage.jpg)', backgroundSize: '100% 500px' }}
-      >
+      <div style={{ width: '100%', height: '100%' }}>
+        <Button variant='outlined'>Outlined</Button>
+        <Title>Issues Management</Title>
+        <p
+          style={{
+            color: 'grey',
+            position: 'relative',
+            top: '200%',
+            transform: 'translate(11%, 135px)',
+            fontSize: '20px',
+            letterSpacing: '3px',
+          }}
+        >
+          just Managing your github issues.
+        </p>
         <LoginButton>
           <a
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: 'none', fontFamily: 'Impact', letterSpacing: '2px' }}
             href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=repo&redirect_uri=${REDIRECT_URI}&prompt=consent`}
           >
-            Login Now &nbsp;
+            Get Start &nbsp;
             <FontAwesomeIcon icon={faRightToBracket} />
           </a>
         </LoginButton>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            position: 'relative',
-            left: '50%',
-            transform: 'translate(-50%, -32%)',
-            marginTop: '200px',
-          }}
-        >
-          <img src='images/cat.png' width={'300px'} height={'300px'} />
-        </div>
-      </Background>
+      </div>
     </>
   );
 }

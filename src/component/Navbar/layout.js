@@ -33,9 +33,16 @@ function Layout() {
       <Nav>
         <Dropdown>
           {state.isLoggedIn ? (
-            <User onClick={handleOpen}>Hi,{state.userName}</User>
+            <User variant='outlined' onClick={handleOpen}>
+              Hi,{state.userName}
+            </User>
           ) : (
-            <User onClick={handleOpen}>您尚未登入唷！</User>
+            <>
+              <User variant='outlined' onClick={handleOpen}>
+                您尚未登入唷！
+              </User>
+              <span>hi 大頭貼</span>
+            </>
           )}
 
           {open && state.isLoggedIn ? (

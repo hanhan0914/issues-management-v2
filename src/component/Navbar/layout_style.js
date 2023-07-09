@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from '@mui/material/Button';
 
 export const Nav = styled.div`
   margin: auto;
@@ -10,16 +11,16 @@ export const Nav = styled.div`
   box-sizing: border-box;
 `;
 
-export const User = styled.button`
+export const User = styled(Button)`
   cursor: pointer;
   margin: 5px;
   margin-left: 20%;
   width: 200px;
   height: 25px;
-  background-color: #e6f1ed;
+  // background-color: #e6f1ed;
   border-radius: 5px;
-  border: none;
-  font-family: Comic Sans MS;
+  v
+  font-family: Impact;
 `;
 
 export const Dropdown = styled.div`
