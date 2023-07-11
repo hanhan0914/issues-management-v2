@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { LoginButton, Title } from './login_style';
 
-import Button from '@mui/material/Button';
-
 function Login() {
   // eslint-disable-next-line no-undef
   const CLIENT_ID = process.env.REACT_APP_GITHUB_CLIENT_ID;
@@ -13,7 +11,6 @@ function Login() {
   return (
     <>
       <div style={{ width: '100%', height: '100%' }}>
-        <Button variant='outlined'>Outlined</Button>
         <Title>Issues Management</Title>
         <p
           style={{

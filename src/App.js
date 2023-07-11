@@ -40,11 +40,9 @@ function App() {
       <UserContext.Provider value={{ state, dispatch }}>
         <BrowserRouter>
           <Routes>
-            {/* <Route path='/' element={<Login />}></Route> */}
             <Route path='/loading' element={<Callback />}></Route>
             <Route element={<Layout />}>
               <Route path='/' element={<Login />}></Route>
-              {/* <Route path='/loading' element={<Callback />}></Route> */}
               <Route path='/list' element={<List />}></Route>
               <Route path='/detail/:full_name/:repo/:number' element={<Detail />}></Route>
             </Route>

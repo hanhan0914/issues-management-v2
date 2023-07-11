@@ -7,6 +7,7 @@ import Cookies from 'universal-cookie';
 import { Nav, Dropdown, Ul, Li, LogoutButton } from './layout_style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import Avatar from '@mui/material/Avatar';
 
 function Layout() {
   const { state, dispatch } = useContext(UserContext);
@@ -33,15 +34,25 @@ function Layout() {
       <Nav>
         <Dropdown>
           {state.isLoggedIn ? (
-            <User variant='outlined' onClick={handleOpen}>
-              Hi,{state.userName}
-            </User>
-          ) : (
             <>
               <User variant='outlined' onClick={handleOpen}>
+                Hi,{state.userName}
+              </User>
+
+              <a href='https://github.com/'>
+                {' '}
+                <Avatar alt='github ' src='github-mark.png' />
+              </a>
+            </>
+          ) : (
+            <>
+              <User variant='outlined' style={{ margin: '5px' }} onClick={handleOpen}>
                 您尚未登入唷！
               </User>
-              <span>hi 大頭貼</span>
+              <a href='https://github.com/'>
+                {' '}
+                <Avatar alt='github ' src='github-mark.png' />
+              </a>
             </>
           )}
 
