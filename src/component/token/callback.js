@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../../App';
+import LoadingButton from '@mui/lab/LoadingButton';
 export const cookies = new Cookie();
 
 function Callback() {
@@ -42,23 +43,17 @@ function Callback() {
   return (
     <>
       <div
-        style={{ backgroundColor: '#9D9D9D', width: '100%', height: '100vh', textAlign: 'center' }}
+        style={{
+          backgroundColor: 'grey',
+          opacity: '.4',
+          width: '100%',
+          height: '100vh',
+          textAlign: 'center',
+        }}
       >
-        <div
-          style={{
-            fontWeight: '700',
-            fontSize: '50px',
-            fontFamily: 'Comic Sans MS',
-            width: '300px',
-            height: '20px',
-            margin: '0 auto',
-            position: 'relative',
-            top: '50%',
-            transform: 'translate(0, -50%)',
-          }}
-        >
-          Loading...
-        </div>
+        <LoadingButton loading variant='text' style={{ fontSize: '300px' }}>
+          Submit
+        </LoadingButton>
       </div>
     </>
   );

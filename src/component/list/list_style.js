@@ -235,13 +235,9 @@ export const SearchHint = styled.div`
 
 export const Navbar = styled.div`
   margin: 0px 0px 30px 0px;
-  background: linear-gradient(to right, #74ebd5, #acb6e5);
+  // background: linear-gradient(to right, #74ebd5, #acb6e5);
   // background-image: url(images/navbar.jpg);
   // background-size: 100% 100%;
-
-  &:hover {
-    background-color: #b8b8dc;
-  }
 `;
 
 export const UserName = styled.button`
