@@ -10,6 +10,10 @@ import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import Avatar from '@mui/material/Avatar';
 
 function Layout() {
+  // eslint-disable-next-line no-undef
+  const CLIENT_ID = process.env.REACT_APP_GITHUB_CLIENT_ID;
+  const REDIRECT_URI = 'http://localhost:3000/loading';
+
   const { state, dispatch } = useContext(UserContext);
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -20,7 +24,6 @@ function Layout() {
   const handleMenuOne = () => {
     // do something
     setOpen(false);
-
     cookie.remove('authToken', { path: '/' });
     console.log('cookie222', cookie.get('authToken'));
     dispatch({ type: 'logout' });
@@ -41,19 +44,31 @@ function Layout() {
 
               <a href='https://github.com/'>
                 {' '}
-                <Avatar alt='github ' src='github-mark.png' />
+                <Avatar
+                  sx={{ width: 35, height: 35, marginLeft: '10px' }}
+                  alt='github '
+                  src='github-mark.png'
+                />
               </a>
             </>
           ) : (
-            <>
-              <User variant='outlined' style={{ margin: '5px' }} onClick={handleOpen}>
-                您尚未登入唷！
-              </User>
+            <div style={{ display: 'flex' }}>
+              <a
+                href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=repo&redirect_uri=${REDIRECT_URI}&prompt=consent`}
+              >
+                <User variant='outlined' onClick={handleOpen}>
+                  Log in
+                </User>
+              </a>
               <a href='https://github.com/'>
                 {' '}
-                <Avatar alt='github ' src='github-mark.png' />
+                <Avatar
+                  sx={{ width: 35, height: 35, marginLeft: '10px' }}
+                  alt='github '
+                  src='github-mark.png'
+                />
               </a>
-            </>
+            </div>
           )}
 
           {open && state.isLoggedIn ? (

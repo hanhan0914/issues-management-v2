@@ -2,36 +2,26 @@ import { styled } from '@mui/system';
 import Button from '@mui/material/Button';
 
 export const Nav = styled('div')({
-  margin: 'auto',
-  width: '100%',
-  height: '45px',
-  background: 'white',
   display: 'flex',
   alignItems: 'center',
-  boxSizing: 'border-box',
+  justifyContent: 'flex-end',
+  padding: '12px 50px',
+  border: 'solid 1px rgb(231, 235, 240)',
 });
 
-export const User = styled(Button)`
-  margin-right: 10px;
-  margin-left: 20%;
-  width: 150px;
-  height: 23px;
-  color: purple;
-  font-family: Impact;
-`;
+export const User = styled(Button)``;
 
 export const Dropdown = styled('div')({
   position: 'relative',
-  margin: '5px',
-  marginLeft: '80%',
   display: 'flex',
   alignItems: 'center',
+  marginRight: '30px',
 });
 
 export const Ul = styled('ul')({
   position: ' absolute',
   bottom: '-90px',
-  left: ' 75px',
+  left: ' 45px',
   margin: '10px 0',
   padding: ' 0',
   backgroundColor: '#e6f1ed',
