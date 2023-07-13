@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+import Button from '@mui/material/Button';
 
-export const Title = styled.div`
+export const Title = styled.h1`
   font-family: Impact;
   font-size: 120px;
   font-weight: bolder;
-  padding: 150px;
-  color: #2a4c65;
-  height: 80px;
+  padding: 80px 100px;
+  color: #1976d2;
+
   line-height: 1;
   letter-spacing: 5px;
   width: 900px;
@@ -25,31 +26,15 @@ export const Title = styled.div`
   }
 `;
 
-export const LoginButton = styled.button`
-  width: 240px;
-  height: 80px;
-  position: relative;
-  left: 50%;
-  transform: translate(-245%, 200%);
-  cursor: pointer;
-  z-index: 2;
-  &:hover {
-    transition-timing-function: ease;
-  }
+export const LoginButton = styled(Button)`
+  margin: 20px 100px;
+  padding: 10px 0px;
 
-  // button 屬性修改
-  font-weight: border;
-  background-color: transparent;
-  font-size: 35px;
-  font-family: Comic Sans MS;
+  // // button 屬性修改
+  // font-weight: border;
+  width: 150px;
+  font-size: 20px;
   color: white;
-  border: none;
-  border-radius: 15px;
-`;
-
-export const Background = styled.div`
-  background-image: linear-gradient(to right, #1f1c2c, #928dab);
-  height: 500px;
 `;
 
 //linear-gradient(to right, #283048, #859398)
