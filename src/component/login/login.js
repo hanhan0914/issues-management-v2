@@ -35,7 +35,12 @@ function Login() {
         </LoginButton> */}
         <LoginButton variant='contained' endIcon={<FontAwesomeIcon icon={faRightToBracket} />}>
           <a
-            style={{ textDecoration: 'none', fontFamily: 'Impact', letterSpacing: '2px' }}
+            style={{
+              textDecoration: 'none',
+              color: 'white',
+              fontFamily: 'Impact',
+              letterSpacing: '2px',
+            }}
             href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=repo&redirect_uri=${REDIRECT_URI}&prompt=consent`}
           >
             Get Start

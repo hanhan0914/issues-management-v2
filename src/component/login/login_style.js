@@ -34,7 +34,6 @@ export const LoginButton = styled(Button)`
   // font-weight: border;
   width: 150px;
   font-size: 20px;
-  color: white;
 `;
 
 //linear-gradient(to right, #283048, #859398)
