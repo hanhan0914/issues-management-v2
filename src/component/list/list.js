@@ -13,7 +13,6 @@ import moment from 'moment';
 import 'moment-timezone';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faMagnifyingGlass,
   faArrowDownWideShort,
   faArrowUpWideShort,
   faCaretLeft,
@@ -21,12 +20,10 @@ import {
 
 import {
   Background,
-  SearchInput,
-  Filter,
   DirectionButton,
   FormBackground,
   HintWord,
-  CreateButtontest,
+  // CreateButtontest,
   ListBackground,
   ListCard,
   ListWord,
@@ -34,48 +31,63 @@ import {
   Label,
   SearchHint,
   Navbar,
+  SearchTest,
+  CreateButton,
 } from './list_style';
+import FormControl from '@mui/material/FormControl';
+import SearchIcon from '@mui/icons-material/Search';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+// import ListItem from '@mui/material/ListItem';
+// import ListItemText from '@mui/material/ListItemText';
+// // import Divider from '@mui/material/Divider';
+// import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const labelColorMap = {
   open: {
     backgroundColor: '	#00BB00',
     color: 'white',
-    borderRadius: '5px',
+
     width: '65px',
-    fontFamily: 'Comic Sans MS',
-    marginLeft: '400px',
-    height: '35px',
-    lineHeight: '35px',
+    borderRadius: '30px',
+    border: 'none',
+    height: '30px',
+    lineHeight: '12px',
+    fontWeight: '700',
   },
   'in progress': {
-    backgroundColor: '#AE57A4',
+    backgroundColor: '	#EAC100',
     color: 'white',
-    borderRadius: '5px',
+    border: 'none',
     width: '150px',
-    fontFamily: 'Comic Sans MS',
+    borderRadius: '30px',
     marginLeft: '367px',
-    height: '35px',
+    height: '30px',
     lineHeight: '12px',
+    fontWeight: '700',
   },
   done: {
     backgroundColor: '#0080FF',
     color: 'white',
-    borderRadius: '5px',
+    border: 'none',
     width: '70px',
-    fontFamily: 'Comic Sans MS',
+    borderRadius: '30px',
     marginLeft: '462px',
-    height: '35px',
+    height: '30px',
     lineHeight: '12px',
+    fontWeight: '700',
   },
   bug: {
     backgroundColor: 'red',
     color: 'white',
-    borderRadius: '5px',
+    borderRadius: '30px',
     width: '65px',
-    fontFamily: 'Comic Sans MS',
+    border: 'none',
     marginLeft: '467px',
-    height: '35px',
+    height: '30px',
     lineHeight: '12px',
+    fontWeight: '700',
   },
 };
 
@@ -256,37 +268,49 @@ function List() {
 
   return (
     <>
-      <Background
-        style={{
-          backgroundImage: 'url(images/listbackground2.jpg)',
-        }}
-        className='doodle'
-      >
+      <Background>
         <Navbar>
-          <SearchInput
+          <SearchTest
             onChange={(e) => {
               setKeyword(e.target.value);
             }}
-            style={{ fontFamily: 'Comic Sans MS', fontSize: '20px', fontWeight: '500' }}
-          />
-          <FontAwesomeIcon
-            icon={faMagnifyingGlass}
-            style={{
-              fontSize: '30px',
-              color: 'black',
-              border: 'none',
-              outline: 'none',
-              margin: '25px 3px -2px -5px ',
-              backgroundColor: 'rgba(0,0,0,0)',
-              cursor: 'pointer',
-            }}
+            placeholder=' Search...'
+            style={{ fontSize: '20px', fontWeight: '500' }}
+          ></SearchTest>
+          <SearchIcon
+            style={{ color: '#1976d2', cursor: 'pointer', margin: 'auto 0' }}
             onClick={() => {
               getSearchData();
               setShowSearchData(true);
             }}
           />
 
-          <span
+          <FormControl
+            variant='standard'
+            sx={{ m: 1, minWidth: 70 }}
+            style={{ color: '#1976d2', margin: 'aurto 0', marginLeft: '200px' }}
+          >
+            <InputLabel id='demo-simple-select-autowidth-label'>Label</InputLabel>
+            <Select
+              labelId='demo-simple-select-autowidth-label'
+              id='demo-simple-select-autowidth'
+              onChange={(e) => {
+                setIssues([]);
+                setPage(1);
+                setFilterLabel(`${e.target.value}`);
+              }}
+              autoWidth
+              label='label'
+            >
+              <MenuItem value=''> All</MenuItem>
+              <MenuItem value='open'>Open</MenuItem>
+              <MenuItem value='in progress'>In Progress</MenuItem>
+              <MenuItem value='done'>Done</MenuItem>
+              <MenuItem value='bug'>Bug</MenuItem>
+            </Select>
+          </FormControl>
+
+          {/* <span
             style={{
               fontSize: '20px',
               fontFamily: 'Comic Sans MS',
@@ -302,27 +326,35 @@ function List() {
               setPage(1);
               setFilterLabel(`${e.target.value}`);
             }}
-            style={{ fontFamily: 'Comic Sans MS' }}
+           
           >
             <option value=''>All</option>
             <option value='open'> open </option>
             <option value='in progress'> in progress</option>
             <option value='done'> done</option>
-          </Filter>
+          </Filter> */}
 
           <DirectionButton onClick={sortByDateAsc}>
             {direction === 'asc' ? (
-              <FontAwesomeIcon icon={faArrowDownWideShort} style={{ fontSize: '16px' }} />
+              <FontAwesomeIcon
+                icon={faArrowDownWideShort}
+                style={{ fontSize: '20px', color: '#1976d2' }}
+              />
             ) : (
-              <FontAwesomeIcon icon={faArrowUpWideShort} style={{ fontSize: '16px' }} />
+              <FontAwesomeIcon
+                icon={faArrowUpWideShort}
+                style={{ fontSize: '20px', color: '#1976d2' }}
+              />
             )}
           </DirectionButton>
-          <CreateButtontest
+
+          <CreateButton
             onClick={() => setAddTask(true)}
-            style={{ zIndex: 1, fontFamily: 'Comic Sans MS' }}
+            sx={{ height: 40 }}
+            style={{ margin: 'auto 0' }}
           >
-            Create Task
-          </CreateButtontest>
+            ADD TASK
+          </CreateButton>
         </Navbar>
 
         {/* form create new task */}
@@ -346,7 +378,6 @@ function List() {
               <input
                 placeholder='Title'
                 type='text'
-                style={{ fontFamily: 'Comic Sans MS' }}
                 {...register('titleName', { required: true })}
               ></input>
             </Form.Field>
@@ -369,25 +400,20 @@ function List() {
             <Form.Field>
               <label>Descriptions</label>
               <textarea
-                style={{ height: '150px', fontFamily: 'Comic Sans MS' }}
+                style={{ height: '150px' }}
                 placeholder='Descriptions'
                 type='text'
                 {...register('body', { required: true, minLength: 30 }, {})}
               ></textarea>
             </Form.Field>
             {errors.body && (
-              <HintWord style={{ fontFamily: 'Comic Sans MS' }}>
+              <HintWord>
                 Please input the Descriptions
                 {/* </p> */}
               </HintWord>
             )}
-            <Button type='submit' style={{ fontFamily: 'Comic Sans MS' }}>
-              Submit
-            </Button>
-            <Button onClick={() => setAddTask(false)} style={{ fontFamily: 'Comic Sans MS' }}>
-              {' '}
-              cancel
-            </Button>
+            <Button type='submit'>Submit</Button>
+            <Button onClick={() => setAddTask(false)}> cancel</Button>
           </Form>
         </FormBackground>
 
@@ -395,7 +421,6 @@ function List() {
         <ListBackground style={{ display: showSearchData ? 'none' : 'block' }}>
           {issues.map((issue, index) => (
             <ListCard
-              className='doodle'
               // 綁定infinite scroll
               ref={index === issues.length - 1 ? lastElementRef : undefined}
               key={issue.id}
@@ -422,7 +447,55 @@ function List() {
                   style={{
                     color: '#8E8E8E',
                     position: 'absolute',
-                    bottom: '1px',
+                    bottom: '5px',
+
+                    fontSize: '18px',
+                  }}
+                >
+                  {' '}
+                  Updated at{' '}
+                  {moment
+                    // .utc(issue.created_at)
+                    .utc(issue.updated_at)
+                    .tz(moment.tz.guess())
+                    .format('YYYY-MM-DD HH:mm:ss')}{' '}
+                </p>
+              </Link>
+            </ListCard>
+          ))}
+        </ListBackground>
+
+        {/* <List
+          component='nav'
+          aria-label='mailbox folders'
+          style={{ display: showSearchData ? 'none' : 'block' }}
+        >
+          {issues.map((issue, index) => (
+            <ListItem ref={index === issues.length - 1 ? lastElementRef : undefined} key={issue.id}>
+              <Link
+                to={`/detail/${issue.repository.full_name}/${issue.number}`}
+                style={{ textDecoration: 'none' }}
+              >
+                <ListItemText primary='Inbox'>
+                  {' '}
+                  REPOSITORY : {issue.repository.full_name}
+                  <Label>
+                    {issue.labels.map((label) => (
+                      <button key={label.name} style={labelColorMap[label.name]}>
+                        {label.name}
+                      </button>
+                    ))}
+                  </Label>{' '}
+                </ListItemText>
+
+                <ListItemText primary='Inbox'> ISSUES : {issue.title}</ListItemText>
+                <ListBody>{issue.body}</ListBody>
+                <p
+                  style={{
+                    color: '#8E8E8E',
+                    position: 'absolute',
+                    bottom: '5px',
+                    right: '20px',
                     fontSize: '18px',
                     fontFamily: 'Comic Sans MS',
                   }}
@@ -430,9 +503,9 @@ function List() {
                   {moment.utc(issue.created_at).tz(moment.tz.guess()).format('YYYY-MM-DD HH:mm:ss')}{' '}
                 </p>
               </Link>
-            </ListCard>
+            </ListItem>
           ))}
-        </ListBackground>
+        </List> */}
 
         {/* 搜尋結果 */}
 
@@ -459,7 +532,7 @@ function List() {
         {/* <ListBackground style={{ width: '100%', height: '100vh', position: 'fixed' }}> */}
         <ListBackground style={{ display: showSearchData ? 'block' : 'none' }}>
           {searchData.map((item) => (
-            <ListCard className='doodle' key={item.number}>
+            <ListCard key={item.number}>
               <Link
                 to={`/detail/${item.repository_url.split('https://api.github.com/repos/')[1]}/${
                   item.number
@@ -483,10 +556,10 @@ function List() {
                     position: 'absolute',
                     bottom: '0px',
                     fontSize: '18px',
-                    fontFamily: 'Comic Sans MS',
                   }}
                 >
-                  {moment.utc(item.created_at).tz(moment.tz.guess()).format('YYYY-MM-DD HH:mm:ss')}{' '}
+                  Updated at{' '}
+                  {moment.utc(item.updated_at).tz(moment.tz.guess()).format('YYYY-MM-DD HH:mm:ss')}{' '}
                 </p>
               </Link>
             </ListCard>
