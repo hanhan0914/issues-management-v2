@@ -23,8 +23,8 @@ function Callback() {
       const res = await axios({
         method: 'post',
         url: state.isLoggedIn
-          ? `https://reverse-node.onrender.com/login/oauth/access_token?client_id=${client_id}&client_secret=${client_secret}&code=${code}`
-          : `https://reverse-node.onrender.com/login/oauth/access_token?client_id=${client_id}&client_secret=${client_secret}&code=${code}&prompt=consent`,
+          ? `http://localhost:4000/login/oauth/access_token?client_id=${client_id}&client_secret=${client_secret}&code=${code}`
+          : `http://localhost:4000/login/oauth/access_token?client_id=${client_id}&client_secret=${client_secret}&code=${code}&prompt=consent`,
         headers: {
           accept: 'application/json',
         },
@@ -44,16 +44,20 @@ function Callback() {
     <>
       <div
         style={{
-          backgroundColor: 'grey',
-          opacity: '.4',
+          backgroundColor: 'white',
+
           width: '100%',
           height: '100vh',
           textAlign: 'center',
         }}
       >
-        <LoadingButton loading variant='text' style={{ fontSize: '300px' }}>
-          Submit
-        </LoadingButton>
+        <LoadingButton
+          loading
+          style={{
+            marginTop: '20%',
+            textAlign: 'center',
+          }}
+        ></LoadingButton>
       </div>
     </>
   );
