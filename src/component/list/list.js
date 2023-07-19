@@ -465,48 +465,6 @@ function List() {
           ))}
         </ListBackground>
 
-        {/* <List
-          component='nav'
-          aria-label='mailbox folders'
-          style={{ display: showSearchData ? 'none' : 'block' }}
-        >
-          {issues.map((issue, index) => (
-            <ListItem ref={index === issues.length - 1 ? lastElementRef : undefined} key={issue.id}>
-              <Link
-                to={`/detail/${issue.repository.full_name}/${issue.number}`}
-                style={{ textDecoration: 'none' }}
-              >
-                <ListItemText primary='Inbox'>
-                  {' '}
-                  REPOSITORY : {issue.repository.full_name}
-                  <Label>
-                    {issue.labels.map((label) => (
-                      <button key={label.name} style={labelColorMap[label.name]}>
-                        {label.name}
-                      </button>
-                    ))}
-                  </Label>{' '}
-                </ListItemText>
-
-                <ListItemText primary='Inbox'> ISSUES : {issue.title}</ListItemText>
-                <ListBody>{issue.body}</ListBody>
-                <p
-                  style={{
-                    color: '#8E8E8E',
-                    position: 'absolute',
-                    bottom: '5px',
-                    right: '20px',
-                    fontSize: '18px',
-                    fontFamily: 'Comic Sans MS',
-                  }}
-                >
-                  {moment.utc(issue.created_at).tz(moment.tz.guess()).format('YYYY-MM-DD HH:mm:ss')}{' '}
-                </p>
-              </Link>
-            </ListItem>
-          ))}
-        </List> */}
-
         {/* 搜尋結果 */}
 
         <SearchHint
@@ -519,14 +477,6 @@ function List() {
           {' '}
           <FontAwesomeIcon icon={faCaretLeft} beat style={{ fontSize: '20px' }} />
           返回列表頁
-        </SearchHint>
-
-        <SearchHint
-          style={{
-            display: showSearchData ? 'block' : 'none',
-          }}
-        >
-          已搜尋到結果如下
         </SearchHint>
 
         {/* <ListBackground style={{ width: '100%', height: '100vh', position: 'fixed' }}> */}

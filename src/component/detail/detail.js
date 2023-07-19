@@ -163,7 +163,6 @@ function Detail() {
           minHeight: '100vh',
           // background: 'linear-gradient(to right, #b2fefa, #0ed2f7)',
 
-          backgroundImage: 'url(/images/detailbackground.jpg)',
           backgroundSize: '100% 100%',
         }}
         className='doodle'
