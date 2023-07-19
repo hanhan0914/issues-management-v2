@@ -8,6 +8,7 @@ import { Nav, Dropdown, Ul, Li, LogoutButton } from './layout_style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import Avatar from '@mui/material/Avatar';
+import { Link } from 'react-router-dom';
 
 function Layout() {
   // eslint-disable-next-line no-undef
@@ -35,6 +36,12 @@ function Layout() {
   return (
     <>
       <Nav>
+        <Link replace to='/list'>
+          <img
+            src='logo.png'
+            style={{ width: '70px', height: '50px', position: 'absolute', left: '2px', top: '8px' }}
+          ></img>
+        </Link>
         <Dropdown>
           {state.isLoggedIn ? (
             <>
