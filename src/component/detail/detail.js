@@ -1,18 +1,16 @@
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'wired-elements';
-import { faArrowUpRightFromSquare, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
 import 'moment-timezone';
 
 import {
   Background,
-  Backbutton,
   Body,
   Edit,
   // Editbutton,
@@ -165,16 +163,7 @@ function Detail() {
 
           backgroundSize: '100% 100%',
         }}
-        className='doodle'
       >
-        <Backbutton>
-          <Link to={'/list'}>
-            {' '}
-            <FontAwesomeIcon icon={faCaretLeft} beat style={{ fontSize: '30px' }} />
-            返回列表頁
-          </Link>
-        </Backbutton>
-
         {/* <Body> */}
         <Body
           style={{
