@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 export const Background = styled.div`
-  width: 100%;
-  height: 100%;
-
-  padding: 10px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -21,22 +17,21 @@ export const Backbutton = styled.div`
 
 export const Body = styled.fieldset`
   background-color: rgba(255, 255, 255, 0.85);
-  width: 900px;
-  height: 600px;
+  width: 800px;
+
   z-index: 10;
   // border: solid 2px #7a7281;
-  font-family: Comic Sans MS;
+
   @media screen and (max-width: 807px) {
     width: 700px;
     bottom: 550px;
   }
 `;
 export const Edit = styled.div`
-  margin-left: 570px;
-  margin-top: 3px;
-  // position: absolute;
-  // right: 0;
-  // top: 0px;
+  // margin-top: 3px;
+  position: absolute;
+  right: 30px;
+  top: 25px;
 
   @media screen and (max-width: 807px) {
     margin-left: 500px;
@@ -73,37 +68,28 @@ export const Title = styled.div`
   width: 500px;
   height: 50px;
 
-  padding: 10px;
-  font-size: 40px;
+  padding: 50px 8px;
+  font-size: 50px;
   text-align: center;
-  color: #484891;
+  color: black;
   text-align: left;
-  font-weight: 900;
-  margin-top: 10px;
+  font-weight: 800;
+  margin-top: 15px;
 `;
 
 export const Label = styled.div`
-  font-size: 20px;
-  border-radius: 10px;
-  // width: 150px;
-  //   text-align: center;
-  font-family: serif;
-
-  border: none;
-
-  background-color: transparent;
   position: absolute;
-  left: 0;
-  top: -55px;
+  left: 20px;
+  top: 30px;
 `;
 
 export const Bodyword = styled.div`
   width: 700px;
-  height: 370px;
   padding: 20px;
   margin: 15px auto;
   font-size: 18px;
-  font-family: Comic Sans MS;
+  letter-spacing: 1px;
+  line-height: 1.3;
 `;
 
 export const InputTitle = styled.input`
@@ -111,32 +97,33 @@ export const InputTitle = styled.input`
   height: 50px;
   border: solid 1px #9d9d9d;
   margin-left: 20px;
-  padding: 10px;
-  font-size: 50px;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 30px;
   text-align: center;
   border-radius: 5px;
-  background-color: transparent;
-  outline: none;
 `;
 
 export const Select = styled.select`
-  margin: 5px 20px;
-  font-size: 18px;
+  margin: 10px 20px;
+  font-size: 20px;
   border: solid 1px #9d9d9d;
-  border-radius: 10px;
+  border-radius: 5px;
   width: 120px;
   text-align: center;
-  background-color: transparent;
 `;
 
 export const InputBody = styled.textarea`
   width: 500px;
   height: 300px;
-  outline: none;
+  padding: 10px;
   margin: 10px 20px;
   border-radius: 5px;
   background-color: transparent;
-  font-family: Comic Sans MS;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 1px;
 `;
 
 export const Popup = styled.fieldset`

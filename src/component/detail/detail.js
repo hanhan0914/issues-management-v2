@@ -1,24 +1,32 @@
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Card from '@mui/material/Card';
+// import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 import React, { useState, useEffect } from 'react';
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import 'wired-elements';
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Button from '@mui/material/Button';
+import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
 import moment from 'moment';
 import 'moment-timezone';
 
 import {
   Background,
-  Body,
   Edit,
   // Editbutton,
   Title,
   Label,
   Bodyword,
   InputTitle,
-  Select,
   InputBody,
   Popup,
 } from './detail_style';
@@ -26,42 +34,46 @@ const labelColorMap = {
   open: {
     backgroundColor: '	#00BB00',
     color: 'white',
-    borderRadius: '5px',
-    width: '50px',
-    fontFamily: 'Comic Sans MS',
-
-    height: '35px',
-    lineHeight: '35px',
+    borderRadius: '30px',
+    border: 'none',
+    width: '55px',
+    height: '30px',
+    lineHeight: '12px',
+    fontWeight: '700',
+    fontSize: '20px',
   },
   'in progress': {
-    backgroundColor: '#AE57A4',
+    backgroundColor: '#EAC100',
     color: 'white',
-    borderRadius: '5px',
+    borderRadius: '30px',
+    border: 'none',
     width: '150px',
-    fontFamily: 'Comic Sans MS',
-
-    height: '35px',
     lineHeight: '12px',
+    fontWeight: '700',
+    height: '30px',
+    fontSize: '20px',
   },
   done: {
     backgroundColor: '#0080FF',
     color: 'white',
-    borderRadius: '5px',
+    borderRadius: '30px',
+    border: 'none',
     width: '70px',
-    fontFamily: 'Comic Sans MS',
-
-    height: '35px',
+    height: '30px',
     lineHeight: '12px',
+    fontWeight: '700',
+    fontSize: '20px',
   },
   bug: {
     backgroundColor: 'red',
     color: 'white',
-    borderRadius: '5px',
+    borderRadius: '30px',
+    border: 'none',
     width: '65px',
-    fontFamily: 'Comic Sans MS',
-
-    height: '35px',
+    height: '30px',
     lineHeight: '12px',
+    fontWeight: '700',
+    fontSize: '20px',
   },
 };
 
@@ -76,10 +88,10 @@ function Detail() {
   const [showInput, setShowInput] = useState(false);
   const [labelsName, setLabelsName] = useState([]);
   const [html, setHtml] = useState('');
-  const [create, setCreate] = useState('');
+  // const [create, setCreate] = useState('');
   const [update, setUpdate] = useState('');
 
-  const [state, setState] = useState('');
+  // const [state, setState] = useState('');
 
   useEffect(() => {
     const getIssueData = async () => {
@@ -99,10 +111,10 @@ function Detail() {
         setLabelsName(data.labels);
         setBody(data.body);
         setHtml(data.html_url);
-        setCreate(data.created_at);
+        // setCreate(data.created_at);
         setUpdate(data.updated_at);
 
-        setState(data.state);
+        // setState(data.state);
         console.log('test', data);
       } catch (error) {
         console.log(error);
@@ -156,177 +168,176 @@ function Detail() {
 
   return (
     <>
-      <Background
-        style={{
-          minHeight: '100vh',
-          // background: 'linear-gradient(to right, #b2fefa, #0ed2f7)',
-
-          backgroundSize: '100% 100%',
-        }}
-      >
+      <Background>
         {/* <Body> */}
-        <Body
-          style={{
-            width: '800px',
-            height: '600px',
-            zIndex: '10',
-          }}
-        >
-          <Edit>
-            <a href={html}>
-              <FontAwesomeIcon
-                icon={faArrowUpRightFromSquare}
-                style={{ fontSize: '25px', margin: '0px auto' }}
-              />
-            </a>
-            <wired-button onClick={() => setShowInput(true)} style={{ margin: '5px' }}>
-              {' '}
-              Edit
-            </wired-button>
-            &nbsp;
-            <wired-button onClick={() => setshowPopUp(true)}>Delete</wired-button>
-          </Edit>
-
-          {/* title label body */}
-          <div style={{ display: showInput ? 'none' : 'block', position: 'relative' }}>
-            <Label>
-              {' '}
-              {labelsName.map((label) => (
-                <button key={label.name} style={labelColorMap[label.name]}>
-                  {label.name}
-                </button>
-              ))}
-            </Label>
-
-            <Title> ISSUES : {title}</Title>
-            <div style={{ padding: '0 10px', color: 'gray', width: '600px' }}>
-              Previous Updated at{' '}
-              {moment.utc(update).tz(moment.tz.guess()).format('YYYY-MM-DD HH:mm')} &nbsp;;&nbsp;
-              Created at {''} {moment.utc(create).tz(moment.tz.guess()).format('YYYY-MM-DD HH:mm')}{' '}
-            </div>
-
-            <div
-              style={{
-                padding: '0 10px',
-                fontSize: '20px',
-                marginTop: '5px',
-                color: 'gray',
-                width: '200px',
-              }}
-            >
-              State : {state}
-            </div>
-
-            {/* label修改其值並不會馬上更新！！！ */}
-
-            <Bodyword>
-              {' '}
-              <span style={{ textDecoration: 'underline', fontWeight: '600' }}>
-                About this issues
-              </span>
-              <br></br>
-              {body}
-            </Bodyword>
-          </div>
-
-          <div style={{ display: showInput ? 'block' : 'none' }}>
-            <div>
-              {' '}
-              <InputTitle
-                type='text'
-                value={title}
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                }}
-                style={{ fontFamily: 'Comic Sans MS', fontSize: '35px' }}
-              ></InputTitle>{' '}
-            </div>{' '}
-            <Select
-              type='text'
-              value={labelsName}
-              onChange={(e) => {
-                setLabelsName([e.target.value]);
-              }}
-              style={{ fontFamily: 'Comic Sans MS', fontSize: '20px' }}
-            >
-              <option>labels</option>
-              <option value='open'> open </option>
-              <option value='in progress'> in progress</option>
-              <option value='done'> done</option>
-            </Select>{' '}
-            <div>
-              {' '}
-              <InputBody
-                type='text'
-                value={body}
-                onChange={(e) => {
-                  setBody(e.target.value);
-                }}
-                style={{ fontFamily: 'Comic Sans MS', fontSize: '18px' }}
-              ></InputBody>{' '}
-            </div>
-            <div style={{ margin: '15px' }}>
-              <wired-button
-                onClick={() => {
-                  setShowInput(false);
-                  updateData();
-                }}
-                style={{ margin: '8px' }}
+        <Card variant='outlined' style={{ width: '800px', height: '580px', marginTop: '35px' }}>
+          <CardContent style={{ position: 'relative' }}>
+            <Edit style={{ color: '#1976d2', cursor: 'pointer' }}>
+              <EditNoteRoundedIcon
+                onClick={() => setShowInput(true)}
+                fontSize='large'
+              ></EditNoteRoundedIcon>
+              &nbsp;
+              <DeleteOutlinedIcon
+                onClick={() => setshowPopUp(true)}
+                style={{ margin: '0 3px' }}
+                fontSize='large'
               >
-                Update
-              </wired-button>
+                Delete
+              </DeleteOutlinedIcon>
+              <a href={html}>
+                <LaunchOutlinedIcon style={{ margin: '0 3px' }} fontSize='large' />
+              </a>
+            </Edit>
 
-              {/* input輸入資料後 onchange同步顯示輸入資料 button點選後把input關掉 拿取修改值並顯示於畫面。如何打api？直接在onclick打api */}
-              <wired-button onClick={() => setShowInput(false)}>Cancel</wired-button>
+            {/* title label body */}
+            <div style={{ display: showInput ? 'none' : 'block' }}>
+              <Label>
+                {' '}
+                {labelsName.map((label) => (
+                  <button key={label.name} style={labelColorMap[label.name]}>
+                    {label.name}
+                  </button>
+                ))}
+              </Label>
+
+              <Title> {title}</Title>
+              <div style={{ padding: '0px 10px', color: 'gray', width: '600px' }}>
+                Previous Updated at{' '}
+                {moment.utc(update).tz(moment.tz.guess()).format('YYYY-MM-DD HH:mm')}
+              </div>
+
+              {/* label修改其值並不會馬上更新！！！ */}
+
+              <Bodyword>
+                {' '}
+                <p style={{ fontWeight: '800', marginBottom: '3px' }}>About this issues</p>
+                {body}
+              </Bodyword>
             </div>
-          </div>
 
-          <Popup
-            style={{
-              display: showPopUp ? 'block' : 'none',
-              width: '300px',
-              height: '150px',
-              backgroundColor: 'white',
-              top: '40%',
-              bottom: '60%',
-              margin: '0 auto',
-              position: 'absolute',
-              right: '0',
-              left: '0',
-            }}
-          >
-            <p
+            <div style={{ display: showInput ? 'block' : 'none' }}>
+              <div>
+                {' '}
+                <InputTitle
+                  type='text'
+                  value={title}
+                  onChange={(e) => {
+                    setTitle(e.target.value);
+                  }}
+                ></InputTitle>{' '}
+              </div>{' '}
+              {/* <Select
+                type='text'
+                value={labelsName}
+                onChange={(e) => {
+                  setLabelsName([e.target.value]);
+                }}
+              >
+                <option>labels</option>
+                <option value='open'> open </option>
+                <option value='in progress'> in progress</option>
+                <option value='done'> done</option>
+              </Select> */}
+              <FormControl
+                // variant='standard'
+                sx={{ m: 1, minWidth: 75 }}
+                style={{ color: '#1976d2', margin: '10px 20px' }}
+              >
+                <InputLabel id='demo-simple-select-autowidth-label'>Label</InputLabel>
+                <Select
+                  labelId='demo-simple-select-autowidth-label'
+                  id='demo-simple-select-autowidth'
+                  onChange={(e) => {
+                    setLabelsName([e.target.value]);
+                  }}
+                  autoWidth
+                  label='label'
+                >
+                  <MenuItem value=''> </MenuItem>
+                  <MenuItem value='open'>Open</MenuItem>
+                  <MenuItem value='in progress'>In Progress</MenuItem>
+                  <MenuItem value='done'>Done</MenuItem>
+                  <MenuItem value='bug'>Bug</MenuItem>
+                </Select>
+              </FormControl>{' '}
+              <div>
+                {' '}
+                <InputBody
+                  type='text'
+                  value={body}
+                  onChange={(e) => {
+                    setBody(e.target.value);
+                  }}
+                ></InputBody>{' '}
+              </div>
+              <div style={{ margin: '15px' }}>
+                <Button
+                  variant='text'
+                  onClick={() => {
+                    setShowInput(false);
+                    updateData();
+                  }}
+                  style={{ width: '100px', fontSize: '15px', fontWeight: '500', margin: '3px 5px' }}
+                >
+                  Update
+                </Button>
+
+                {/* input輸入資料後 onchange同步顯示輸入資料 button點選後把input關掉 拿取修改值並顯示於畫面。如何打api？直接在onclick打api */}
+                <Button
+                  onClick={() => setShowInput(false)}
+                  style={{ width: '100px', fontSize: '15px', fontWeight: '500', margin: '3px 5px' }}
+                >
+                  Cancel
+                </Button>
+              </div>
+            </div>
+
+            <Popup
               style={{
-                fontSize: '20px',
-                margin: '15px',
-                textAlign: 'center',
-                fontFamily: 'Comic Sans MS',
+                display: showPopUp ? 'block' : 'none',
+                width: '300px',
+                height: '150px',
+                backgroundColor: 'white',
+                top: '40%',
+                bottom: '60%',
+                margin: '0 auto',
+                position: 'absolute',
+                right: '0',
+                left: '0',
               }}
             >
-              Delete this data?
-            </p>
-            <div style={{ margin: '0 auto', textAlign: 'center' }}>
-              <wired-button
-                onClick={() => {
-                  deleteIssue();
-                }}
+              <p
                 style={{
-                  backgroundColor: 'white',
+                  fontSize: '20px',
+                  margin: '15px',
+                  textAlign: 'center',
+                  fontFamily: 'Comic Sans MS',
                 }}
               >
-                Yes
-              </wired-button>
-              <wired-button
-                onClick={() => setshowPopUp(false)}
-                style={{ backgroundColor: 'white', marginLeft: '20px' }}
-              >
-                No
-              </wired-button>
-            </div>
-          </Popup>
-
-          {/* </Body> */}
-        </Body>
+                Delete this data?
+              </p>
+              <div style={{ margin: '0 auto', textAlign: 'center' }}>
+                <wired-button
+                  onClick={() => {
+                    deleteIssue();
+                  }}
+                  style={{
+                    backgroundColor: 'white',
+                  }}
+                >
+                  Yes
+                </wired-button>
+                <wired-button
+                  onClick={() => setshowPopUp(false)}
+                  style={{ backgroundColor: 'white', marginLeft: '20px' }}
+                >
+                  No
+                </wired-button>
+              </div>
+            </Popup>
+          </CardContent>
+        </Card>
       </Background>
     </>
   );
