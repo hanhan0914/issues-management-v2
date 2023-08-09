@@ -14,10 +14,9 @@
 #### 4.主列表頁
 ##### 紅線框：搜尋欄位
 ##### 藍線框：依task標籤篩選filter、依時間排序鍵、新增issues按鈕
-##### 綠線框：登入後會顯示使用者名稱，可在此處選擇登出。
 ![image](https://github.com/hanhan0914/issues-management-v2/assets/91658568/3e5b46b3-d734-4be9-b8b5-f7248c4ecf56)
 
-
+##### 綠線框：登入後會顯示使用者名稱，可在此處選擇登出。
 <img width="292" alt="image" src="https://github.com/hanhan0914/issues-management-v2/assets/91658568/bf60ba51-e24a-470a-a1b1-6afe69fe4340">
 
 ---
