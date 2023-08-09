@@ -3,25 +3,32 @@
 ---
 #### IM V2 版本 更新如下：
 #### 1.IM V2 版本使用 material ui 撰寫，將 RWD 撰寫於 styled-components 中，方便管理。
-#### 2.登入頁面，使用 useContext 和 useReducer 做登入狀態管理；新增 IM logo 及 github 連結。
+#### 2.登入頁面，使用 useContext 和 useReducer 做登入狀態管理；新增 IM logo(可回主列表頁面)及 github 連結。
 ![image](https://github.com/hanhan0914/issues-management-v2/assets/91658568/032ce217-8db8-4f9a-8daf-9ddd044b6589)
 
 
-#### 2.進入登入 github 取得權限頁面 > loading畫面
+#### 3.進入登入 github 取得權限頁面 > loading畫面
 <img width="494" alt="image" src="https://images.cakeresume.com/Bnpa7/amy8611020923-7f0e18/d55f62fc-8137-4142-aa5f-ebecf6c678a4.png">
 
-#### 3.主列表頁
-##### 紅線框：搜尋欄位 及 task list
+#### 4.主列表頁
+##### 紅線框：搜尋欄位
 ##### 藍線框：依task標籤篩選filter、依時間排序鍵、新增issues按鈕
-##### 背景圖片來源：https://www.freepik.com/free-vector/watercolor-background_7655630.htm#query=colorful&position=27&from_view=search&track=sph
-<img width="1351" alt="image" src="https://github.com/hanhan0914/issues-management/assets/91658568/4772b663-f795-42bd-af1c-243237ee10ea">
+##### 綠線框：登入後會顯示使用者名稱，可在此處選擇登出。
+![image](https://github.com/hanhan0914/issues-management-v2/assets/91658568/3e5b46b3-d734-4be9-b8b5-f7248c4ecf56)
+<img width="292" alt="image" src="https://github.com/hanhan0914/issues-management-v2/assets/91658568/bf60ba51-e24a-470a-a1b1-6afe69fe4340">
 
-#### 4.詳細資訊頁面
-##### 可瀏覽task資訊、修改內容、刪除task
-##### 另有連結鍵可直接連結到該 github repo 頁面查看更完整資訊。
-##### 背景圖片來源：https://www.freepik.com/free-photo/colorful-block-print-frame-beige-background_15607062.htm#page=4&query=colorful&position=29&from_view=search&track=sph
 
-<img width="1435" alt="image" src="https://github.com/hanhan0914/issues-management/assets/91658568/3734a31b-5a24-41f2-94d0-f7a41cc3201e">
+#### 5.詳細資訊頁面
+##### 可瀏覽task資訊、修改內容、刪除task、連結鍵可直接連結到該 github repo 頁面查看更完整資訊。
+
+![image](https://github.com/hanhan0914/issues-management-v2/assets/91658568/94bca531-d2e2-4519-89f5-bdf4dcb90489)
+
+#### 修改按鍵如圖顯示，直接在頁面上作修改（預設值會帶入原始資料）。
+![image](https://github.com/hanhan0914/issues-management-v2/assets/91658568/06c991df-8481-46d8-830d-32fda796472c)
+
+#### 刪除按鍵如圖顯示，頁面反灰並出現確認框，確認是否刪除。
+![image](https://github.com/hanhan0914/issues-management-v2/assets/91658568/b33cdd77-98a7-4aaf-a396-053731226b40)
+
 
 ---
 
@@ -35,8 +42,6 @@
 (4) issues 相關 api：
 https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28
 
-(5)圖片引用出處：
-https://www.freepik.com/free-vector/creative-elements-storyboard-concept_10359594.htm#query=painted%20task&position=16&from_view=search&track=ais
 
 ## 如何啟動專案
 
