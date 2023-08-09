@@ -5,18 +5,22 @@
 #### 1.IM V2 版本使用 material ui 撰寫，將 RWD 撰寫於 styled-components 中，方便管理。
 #### 2.登入頁面，使用 useContext 和 useReducer 做登入狀態管理；新增 IM logo(可回主列表頁面)及 github 連結。
 ![image](https://github.com/hanhan0914/issues-management-v2/assets/91658568/032ce217-8db8-4f9a-8daf-9ddd044b6589)
-
+---
 
 #### 3.進入登入 github 取得權限頁面 > loading畫面
 <img width="494" alt="image" src="https://images.cakeresume.com/Bnpa7/amy8611020923-7f0e18/d55f62fc-8137-4142-aa5f-ebecf6c678a4.png">
+---
 
 #### 4.主列表頁
 ##### 紅線框：搜尋欄位
 ##### 藍線框：依task標籤篩選filter、依時間排序鍵、新增issues按鈕
 ##### 綠線框：登入後會顯示使用者名稱，可在此處選擇登出。
 ![image](https://github.com/hanhan0914/issues-management-v2/assets/91658568/3e5b46b3-d734-4be9-b8b5-f7248c4ecf56)
+
+
 <img width="292" alt="image" src="https://github.com/hanhan0914/issues-management-v2/assets/91658568/bf60ba51-e24a-470a-a1b1-6afe69fe4340">
 
+---
 
 #### 5.詳細資訊頁面
 ##### 可瀏覽task資訊、修改內容、刪除task、連結鍵可直接連結到該 github repo 頁面查看更完整資訊。
