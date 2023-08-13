@@ -33,8 +33,11 @@ import {
   Navbar,
   SearchTest,
   CreateButton,
+  Filter,
 } from './list_style';
-import FormControl from '@mui/material/FormControl';
+
+import { Back } from '../detail/detail_style';
+// import FormControl from '@mui/material/FormControl';
 import SearchIcon from '@mui/icons-material/Search';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -48,7 +51,6 @@ const labelColorMap = {
   open: {
     backgroundColor: '	#00BB00',
     color: 'white',
-
     width: '65px',
     borderRadius: '30px',
     border: 'none',
@@ -60,12 +62,13 @@ const labelColorMap = {
     backgroundColor: '	#EAC100',
     color: 'white',
     border: 'none',
-    width: '150px',
+    width: '120px',
     borderRadius: '30px',
-    marginLeft: '367px',
+    marginLeft: '369px',
     height: '30px',
     lineHeight: '12px',
     fontWeight: '700',
+    marginTop: '-8px',
   },
   done: {
     backgroundColor: '#0080FF',
@@ -268,6 +271,12 @@ function List() {
 
   return (
     <>
+      <Back
+        style={{
+          display: addTask ? 'block' : 'none',
+        }}
+        onClick={() => setAddTask(false)}
+      ></Back>
       <Background>
         <Navbar>
           <SearchTest
@@ -285,10 +294,10 @@ function List() {
             }}
           />
 
-          <FormControl
-            variant='standard'
-            sx={{ m: 1, minWidth: 70 }}
-            style={{ color: '#1976d2', margin: 'aurto 0', marginLeft: '200px' }}
+          <Filter
+            // variant='standard'
+            size='small'
+            sx={{ minWidth: 70 }}
           >
             <InputLabel id='demo-simple-select-autowidth-label'>Label</InputLabel>
             <Select
@@ -308,31 +317,7 @@ function List() {
               <MenuItem value='done'>Done</MenuItem>
               <MenuItem value='bug'>Bug</MenuItem>
             </Select>
-          </FormControl>
-
-          {/* <span
-            style={{
-              fontSize: '20px',
-              fontFamily: 'Comic Sans MS',
-              width: '10px',
-              marginLeft: '155px',
-            }}
-          >
-            Label
-          </span>
-          <Filter
-            onChange={(e) => {
-              setIssues([]);
-              setPage(1);
-              setFilterLabel(`${e.target.value}`);
-            }}
-           
-          >
-            <option value=''>All</option>
-            <option value='open'> open </option>
-            <option value='in progress'> in progress</option>
-            <option value='done'> done</option>
-          </Filter> */}
+          </Filter>
 
           <DirectionButton onClick={sortByDateAsc}>
             {direction === 'asc' ? (
@@ -350,8 +335,8 @@ function List() {
 
           <CreateButton
             onClick={() => setAddTask(true)}
-            sx={{ height: 40 }}
-            style={{ margin: 'auto 0' }}
+            sx={{ height: 45 }}
+            style={{ fontSize: '13px' }}
           >
             ADD TASK
           </CreateButton>
@@ -360,12 +345,12 @@ function List() {
         {/* form create new task */}
         <FormBackground style={{ display: addTask ? 'block' : 'none' }}>
           <Form onSubmit={handleSubmit(onSubmit)}>
+            <p style={{ fontWeight: '800', fontSize: '25px', marginTop: '3px' }}>Create Task</p>
             <Form.Field>
               <label>Repo Name</label>
               <input
                 placeholder='Repo Name'
                 type='text'
-                style={{ fontFamily: 'Comic Sans MS' }}
                 // onChange={(e) => {
                 //   setRepo(e.target.value);
                 // }}  use register to get vaule,and may console data,just take data to call api (create new task)
@@ -383,7 +368,7 @@ function List() {
             </Form.Field>
             {errors.titleName && <HintWord>Please input the TitleName</HintWord>}
             <Form.Field>
-              <label>Labels</label>
+              {/* <label>Labels</label>
 
               <select
                 onChange={(e) => {
@@ -395,7 +380,27 @@ function List() {
                 <option value='open'> open </option>
                 <option value='in progress'> in progress</option>
                 <option value='done'> done</option>
-              </select>
+              </select> */}
+
+              <Filter size='small' sx={{ minWidth: 70 }} style={{ marginLeft: '3px' }}>
+                <InputLabel id='demo-simple-select-autowidth-label'>Label</InputLabel>
+                <Select
+                  labelId='demo-simple-select-autowidth-label'
+                  id='demo-simple-select-autowidth'
+                  onChange={(e) => {
+                    setLabelsName([...labelsName, e.target.value]);
+                  }}
+                  {...register('label', {})}
+                  autoWidth
+                  label='label'
+                >
+                  <MenuItem value=''> All</MenuItem>
+                  <MenuItem value='open'>Open</MenuItem>
+                  <MenuItem value='in progress'>In Progress</MenuItem>
+                  <MenuItem value='done'>Done</MenuItem>
+                  <MenuItem value='bug'>Bug</MenuItem>
+                </Select>
+              </Filter>
             </Form.Field>
             <Form.Field>
               <label>Descriptions</label>
@@ -412,8 +417,16 @@ function List() {
                 {/* </p> */}
               </HintWord>
             )}
-            <Button type='submit'>Submit</Button>
-            <Button onClick={() => setAddTask(false)}> cancel</Button>
+            <Button type='submit' style={{ background: '#1976d2', color: 'white' }}>
+              Submit
+            </Button>
+            <Button
+              onClick={() => setAddTask(false)}
+              style={{ background: '#1976d2', color: 'white', marginLeft: '8px' }}
+            >
+              {' '}
+              cancel
+            </Button>
           </Form>
         </FormBackground>
 
