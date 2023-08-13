@@ -20,21 +20,21 @@ export const Dropdown = styled('div')({
 
 export const Ul = styled('ul')({
   position: ' absolute',
-  bottom: '-90px',
+  bottom: '-80px',
   left: ' 45px',
   margin: '10px 0',
   padding: ' 0',
-  backgroundColor: '#e6f1ed',
+  backgroundColor: 'white',
   borderRadius: ' 5px',
   width: ' 150px',
-  height: ' 80px',
+  height: ' 60px',
+  boxShadow: '0px 0px 5px black',
 });
 
 export const Li = styled('li')({
   margin: '10px',
   backgroundColor: 'white',
   listStyle: 'none',
-  fontFamily: 'Comic Sans MS',
 });
 
 export const LogoutButton = styled('button')({

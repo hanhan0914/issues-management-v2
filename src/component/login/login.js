@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import { LoginButton, Title } from './login_style';
+import { LoginButton, Title, Subtitle } from './login_style';
 // import Button from '@mui/material/Button';
 
 function Login() {
@@ -11,28 +11,10 @@ function Login() {
 
   return (
     <>
-      <div style={{ width: '100%', height: '100%' }}>
+      <div style={{ width: '100%', height: '100%', marginTop: '40px' }}>
         <Title>Issues Management</Title>
-        <p
-          style={{
-            color: '#1976d2',
-            padding: '0px 105px',
-            marginTop: '-40px',
-            fontSize: '20px',
-            letterSpacing: '3px',
-          }}
-        >
-          just Managing your github issues.
-        </p>
-        {/* <LoginButton>
-          <a
-            style={{ textDecoration: 'none', fontFamily: 'Impact', letterSpacing: '2px' }}
-            href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=repo&redirect_uri=${REDIRECT_URI}&prompt=consent`}
-          >
-            Get Start &nbsp;
-            <FontAwesomeIcon icon={faRightToBracket} />
-          </a>
-        </LoginButton> */}
+        <Subtitle>just Managing your github issues.</Subtitle>
+
         <LoginButton variant='contained' endIcon={<FontAwesomeIcon icon={faRightToBracket} />}>
           <a
             style={{
