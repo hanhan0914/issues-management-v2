@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import Card from '@mui/material/Card';
+// import Card from '@mui/material/Card';
 // import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import React, { useState, useEffect } from 'react';
@@ -22,14 +22,16 @@ import 'moment-timezone';
 import {
   Background,
   Edit,
-  // Editbutton,
   Title,
   Label,
   Bodyword,
   InputTitle,
   InputBody,
   Popup,
+  Back,
+  MyCard,
 } from './detail_style';
+
 const labelColorMap = {
   open: {
     backgroundColor: '	#00BB00',
@@ -168,9 +170,16 @@ function Detail() {
 
   return (
     <>
+      <Back
+        style={{
+          display: showPopUp ? 'block' : 'none',
+        }}
+        onClick={() => setshowPopUp(false)}
+      ></Back>
+
       <Background>
         {/* <Body> */}
-        <Card variant='outlined' style={{ width: '800px', height: '580px', marginTop: '35px' }}>
+        <MyCard>
           <CardContent style={{ position: 'relative' }}>
             <Edit style={{ color: '#1976d2', cursor: 'pointer' }}>
               <EditNoteRoundedIcon
@@ -296,48 +305,36 @@ function Detail() {
             <Popup
               style={{
                 display: showPopUp ? 'block' : 'none',
-                width: '300px',
-                height: '150px',
-                backgroundColor: 'white',
-                top: '40%',
-                bottom: '60%',
-                margin: '0 auto',
-                position: 'absolute',
-                right: '0',
-                left: '0',
               }}
             >
               <p
                 style={{
-                  fontSize: '20px',
-                  margin: '15px',
+                  margin: '30px 15px',
                   textAlign: 'center',
-                  fontFamily: 'Comic Sans MS',
                 }}
               >
-                Delete this data?
+                Delete this data ?
               </p>
               <div style={{ margin: '0 auto', textAlign: 'center' }}>
-                <wired-button
+                <Button
+                  variant='contained'
                   onClick={() => {
                     deleteIssue();
                   }}
-                  style={{
-                    backgroundColor: 'white',
-                  }}
                 >
                   Yes
-                </wired-button>
-                <wired-button
+                </Button>
+                <Button
+                  variant='contained'
                   onClick={() => setshowPopUp(false)}
-                  style={{ backgroundColor: 'white', marginLeft: '20px' }}
+                  style={{ marginLeft: '20px' }}
                 >
                   No
-                </wired-button>
+                </Button>
               </div>
             </Popup>
           </CardContent>
-        </Card>
+        </MyCard>
       </Background>
     </>
   );
