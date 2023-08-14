@@ -38,7 +38,7 @@ function App() {
   return (
     <>
       <UserContext.Provider value={{ state, dispatch }}>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Routes>
             <Route exact path='/loading' element={<Callback />}></Route>
             <Route element={<Layout />}>
