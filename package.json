@@ -39,7 +39,7 @@
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint --fix src/**/*.js",
     "format": "prettier --write src/**/*.js",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build "
 
   },
   "eslintConfig": {
