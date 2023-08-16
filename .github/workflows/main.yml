@@ -25,7 +25,9 @@ jobs:
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
+       env:
+        REACT_APP_GITHUB_CLIENT_ID: ${{ secrets.REACT_APP_GITHUB_CLIENT_ID }}
+        REACT_APP_GITHUB_CLIENT_SECRET: ${{ secrets.REACT_APP_GITHUB_CLIENT_SECRET }}
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         BRANCH: gh-pages
         FOLDER: build
