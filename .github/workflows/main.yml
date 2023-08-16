@@ -18,7 +18,7 @@ jobs:
     - name: Build
       run: |
         npm install
-        npm run-script build
+        npm run build
       env:
         REACT_APP_GITHUB_CLIENT_ID: ${{ secrets.REACT_APP_GITHUB_CLIENT_ID }}
         REACT_APP_GITHUB_CLIENT_SECRET: ${{ secrets.REACT_APP_GITHUB_CLIENT_SECRET }}
@@ -26,6 +26,4 @@ jobs:
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
-         BRANCH: gh-pages
-         FOLDER: dist
+         folder: build
