@@ -154,10 +154,10 @@ function List() {
       });
 
       const res = issuesData;
-      console.log('res', issuesData);
-      console.log('myusername', issuesData[0].assignee.login);
+      //console.log('res', issuesData);
+      //console.log('myusername', issuesData[0].assignee.login);
       dispatch({ type: 'success', payload: issuesData[0].assignee.login });
-      console.log('token', cookies.get('authToken'));
+      //console.log('token', cookies.get('authToken'));
       setLoading(false); //新
       setIssues((issues) => [...issues, ...res]);
       // add new data to issues(array) and map it ,render to ui
@@ -197,7 +197,7 @@ function List() {
   useEffect(() => {
     setLoading(true); //新
     setError(false); //新
-    console.log('page', page);
+    //console.log('page', page);
     getList();
   }, [page, filterLabel, direction]);
 
@@ -230,7 +230,7 @@ function List() {
         )
 
         .then((res) => {
-          console.log(res.data);
+          //console.log(res.data);
           getList();
           //call API add new task and call getList() re-render
         });
@@ -254,7 +254,7 @@ function List() {
       .then((res) => {
         // console.log('items', res.data.items); map it（array)
         setSearchData(res.data.items);
-        console.log('res', res);
+        //console.log('res', res);
       });
   }
 
